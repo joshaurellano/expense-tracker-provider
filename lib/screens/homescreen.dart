@@ -21,7 +21,7 @@ class Homescreen extends StatelessWidget {
               controller: titleController, 
               decoration: 
                 const InputDecoration(
-                  labelText: 'Title')),
+                  labelText: 'Name')),
             TextField(
               controller: amountController, 
               decoration: 
@@ -131,7 +131,17 @@ class Homescreen extends StatelessWidget {
 
               // Expense List
               Expanded(
-                child: ListView.separated(
+                child: expensesProvider.allExpenses.isEmpty ? Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.article_outlined),
+                      const Text('No expenses yet'),
+                      const Text('Tap the "+" button')
+                    ],
+                  ),
+                ) : ListView.separated(
                   itemCount: expensesProvider.allExpenses.length,
                   separatorBuilder: (_, index) => const Divider(),
                   itemBuilder: (context, index) {
