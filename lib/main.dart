@@ -4,11 +4,14 @@ import 'package:provider/provider.dart';
 import './providers/expense_provider.dart';
 
 void main() {
-  MultiProvider(
-    providers: [
-      ChangeNotifierProvider(create: (_) => Expenseprovider())
-    ],
-    child: const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Expenseprovider())
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
