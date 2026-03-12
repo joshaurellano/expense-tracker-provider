@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import './screens/homescreen.dart';
+import 'package:provider/provider.dart';
+import './providers/expense_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => Expenseprovider())
+    ],
+    child: const MyApp());
 }
 
 class MyApp extends StatelessWidget {
